@@ -1,2 +1,2 @@
 # deepml
-solutions to https://www.deep-ml.com/ problems
+solutions to https://www.deep-ml.com/ problems, cp style
