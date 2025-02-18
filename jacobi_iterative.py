@@ -4,7 +4,6 @@ def solve_jacobi(A: np.ndarray, b: np.ndarray, n: int) -> list:
     nda = A - np.diag(da)
     x = np.zeros(len(b))
     for _ in range(n):
-        #vectorization
         x = (b - nda @ x) / da
     return x.round(4).tolist()
 
