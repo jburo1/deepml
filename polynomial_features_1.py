@@ -1,5 +1,9 @@
 import numpy as np
 from itertools import combinations_with_replacement
+'''
+working first attempt. should be refactored to vectorize that which can be vectorized.
+'''
+
 def create_poly_features_for_row(row, exponent_configurations,max_degree):
     # for each feature, evaluate all monomials of up to degree max(exponents)
     # can use a dict for this, key = feature idx, value = list of monomials, 
@@ -16,6 +20,7 @@ def create_poly_features_for_row(row, exponent_configurations,max_degree):
         for idx,exponent_value in enumerate(exponent_configuration):
             acc*=feature_monomials[idx][exponent_value]
         poly_features_row.append(int(acc))
+    
     # return row as list
     return poly_features_row
     
