@@ -17,3 +17,5 @@ y_true = np.array([1, 0, 1, 1, 0, 0])
 y_pred = np.array([1, 0, 0, 0, 0, 1]) 
 beta = 1 
 print(f_score(y_true, y_pred, beta))
+
+
