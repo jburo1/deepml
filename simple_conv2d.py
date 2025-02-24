@@ -2,18 +2,16 @@ import numpy as np
 def simple_conv2d(input_matrix: np.ndarray, kernel: np.ndarray, padding: int, stride: int):
     kernel_height, kernel_width = kernel.shape
     padded_matrix = np.pad(input_matrix, padding)
-    vertical_positions = ((padded_matrix.shape[0] + 2*padding - kernel_height) // stride) + 1
-    horizontal_positions = ((padded_matrix.shape[1] + 2*padding - kernel_width) // stride) + 1
+    vertical_positions = ((padded_matrix.shape[0] - kernel_height) // stride) + 1
+    horizontal_positions = ((padded_matrix.shape[1] - kernel_width) // stride) + 1
     output_matrix = np.zeros((vertical_positions, horizontal_positions))
     
-    iid=0
     for i in range(output_matrix.shape[0]):
-        jid=0
+        iid = i * stride
         for j in range(output_matrix.shape[1]):
+            jid = j * stride
             image_window = padded_matrix[iid:iid+kernel_height,jid:jid+kernel_width]
             output_matrix[i][j] = np.sum(image_window * kernel)
-            jid+=stride
-        iid+=stride   
     return output_matrix
 
 
