@@ -1,12 +1,15 @@
 import numpy as np
 
+
 def rnn_forward(input_sequence: list[list[float]], initial_hidden_state: list[float], Wx: list[list[float]], Wh: list[list[float]], b: list[float]) -> list[float]:
-    input, h, Wx, Wh, b = np.array(input_sequence), np.array(initial_hidden_state), np.array(Wx), np.array(Wh), np.array(b)
-    
+    input, h, Wx, Wh, b = np.array(input_sequence), np.array(
+        initial_hidden_state), np.array(Wx), np.array(Wh), np.array(b)
+
     for xt in input:
         h = np.tanh(Wx@xt + Wh@h + b)
 
     return h
+
 
 input_sequence = [[1.0], [2.0], [3.0]]
 initial_hidden_state = [0.0]

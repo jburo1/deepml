@@ -1,5 +1,7 @@
 import numpy as np
-def calculate_brightness(img:list):
+
+
+def calculate_brightness(img: list):
     try:
         assert img is not None
         assert len(img) > 0
@@ -9,6 +11,7 @@ def calculate_brightness(img:list):
         return np.sum(img)/img.size
     except:
         return -1
+
 
 img = [
     [100, 200],
