@@ -36,6 +36,8 @@ class SimpleRNN:
 
         dh_next = np.zeros((self.hidden_size, 1))
 
+        # cannot be vectorized, temporal relationship breaks it
+
         for t in reversed(range(len(x))):
             dy = self.last_outputs[t] - \
                 y[t].reshape(-1, 1)
